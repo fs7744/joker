@@ -7,7 +7,7 @@ namespace Joker.Server
     {
         public string Key { get; set; }
 
-        public IReadOnlyCollection<EndPoint> EndPoints { get; set; }
+        public IReadOnlyCollection<EndPointData> EndPoints { get; set; }
 
         public ConnectionDelegate ConnectionDelegate { get; set; }
     }

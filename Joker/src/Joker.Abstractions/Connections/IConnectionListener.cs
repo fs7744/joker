@@ -2,11 +2,11 @@
 
 namespace Joker.Connections
 {
-    public interface IConnectionListener : IAsyncDisposable
+    public interface IConnectionListener<T> : IAsyncDisposable where T : EndPointData
     {
-        EndPoint EndPoint { get; }
+        T EndPoint { get; }
 
-        ValueTask<ConnectionContext?> AcceptAsync(CancellationToken cancellationToken = default);
+        ValueTask<ConnectionContext<T>?> AcceptAsync(CancellationToken cancellationToken = default);
 
         ValueTask UnbindAsync(CancellationToken cancellationToken = default);
     }
