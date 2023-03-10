@@ -2,8 +2,8 @@
 
 namespace Joker.Connections
 {
-    public interface IConnectionFactory<T> : IAsyncDisposable where T : EndPointData
+    public interface IConnectionFactory : IAsyncDisposable 
     {
-        ValueTask<ConnectionContext<T>> ConnectAsync(T endpoint, CancellationToken cancellationToken = default);
+        ValueTask<ConnectionContext> ConnectAsync(EndPoint endpoint, CancellationToken cancellationToken = default);
     }
 }

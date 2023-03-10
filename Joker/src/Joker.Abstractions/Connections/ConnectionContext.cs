@@ -1,5 +1,6 @@
 ﻿using Joker.Exceptions;
 using System.IO.Pipelines;
+using System.Net;
 
 namespace Joker.Connections
 {
@@ -14,6 +15,9 @@ namespace Joker.Connections
         public abstract IDictionary<object, object?> Items { get; set; }
 
         public virtual CancellationToken ConnectionClosed { get; set; }
+
+        public virtual EndPoint? LocalEndPoint { get; set; }
+        public virtual EndPoint? RemoteEndPoint { get; set; }
 
         public abstract void Abort(ConnectionAbortedException abortReason);
 

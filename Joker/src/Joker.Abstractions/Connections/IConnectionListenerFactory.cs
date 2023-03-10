@@ -2,10 +2,10 @@
 
 namespace Joker.Connections
 {
-    public interface IConnectionListenerFactory<T> where T : EndPointData
+    public interface IConnectionListenerFactory
     {
-        bool CanBind(T endpoint);
+        bool CanBind(EndPoint endpoint);
 
-        ValueTask<IConnectionListener<T>> BindAsync(T endpoint, CancellationToken cancellationToken = default);
+        ValueTask<IConnectionListener> BindAsync(EndPoint endpoint, CancellationToken cancellationToken = default);
     }
 }

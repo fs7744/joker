@@ -6,7 +6,7 @@ namespace Joker.Server
 {
     public static class ServerOptionsExtensions
     {
-        public static ListenOptionsBuilder AddEndPoint(this ServerOptionsBuilder builder, string key, params EndPointData[] endPoints)
+        public static ListenOptionsBuilder AddEndPoint(this ServerOptionsBuilder builder, string key, params EndPoint[] endPoints)
         {
             ArgumentException.ThrowIfNullOrEmpty(key, nameof(key));
             ArgumentNullException.ThrowIfNull(endPoints, nameof(endPoints));
