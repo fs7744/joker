@@ -1,5 +1,5 @@
-﻿using Microsoft.Extensions.Hosting;
-using Joker.Server;
+﻿using Joker.Server;
+using Microsoft.Extensions.Hosting;
 
 namespace Joker
 {

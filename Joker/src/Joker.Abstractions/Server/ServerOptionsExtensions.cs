@@ -14,6 +14,7 @@ namespace Joker.Server
             builder.ListenOptionsBuilders.Add(lo);
             return lo;
         }
+
         public static ListenOptionsBuilder Listen(this ListenOptionsBuilder builder, params EndPoint[] endPoints)
         {
             ArgumentNullException.ThrowIfNull(endPoints, nameof(endPoints));
@@ -24,7 +25,6 @@ namespace Joker.Server
             builder.EndPoints.AddRange(endPoints);
             return builder;
         }
-
 
         public static ListenOptionsBuilder ListenTcp(this ListenOptionsBuilder builder, params TcpEndPoint[] endPoints)
         {

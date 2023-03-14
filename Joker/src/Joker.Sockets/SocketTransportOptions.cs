@@ -1,7 +1,7 @@
-﻿using System.Buffers;
+﻿using Joker.Connections;
+using System.Buffers;
 using System.Net;
 using System.Net.Sockets;
-using Joker.Connections;
 
 namespace Joker.Sockets
 {

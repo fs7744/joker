@@ -1,8 +1,8 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Joker.Connections;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Net;
 using System.Net.Sockets;
-using Joker.Connections;
 
 namespace Joker.Sockets
 {

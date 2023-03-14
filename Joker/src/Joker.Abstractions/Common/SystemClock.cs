@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Joker.Common
+﻿namespace Joker.Common
 {
     public sealed class SystemClock : ISystemClock
     {

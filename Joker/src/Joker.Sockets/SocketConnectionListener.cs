@@ -1,10 +1,10 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Joker.Connections;
+using Joker.Exceptions;
+using Joker.Sockets.Internal;
+using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
-using Joker.Connections;
-using Joker.Exceptions;
-using Joker.Sockets.Internal;
 
 namespace Joker.Sockets
 {
@@ -21,7 +21,7 @@ namespace Joker.Sockets
         internal SocketConnectionListener(
             EndPoint endpoint,
             SocketTransportOptions options,
-            ILoggerFactory loggerFactory, 
+            ILoggerFactory loggerFactory,
             IServiceProvider serviceProvider)
         {
             EndPoint = endpoint;

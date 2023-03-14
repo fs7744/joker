@@ -8,5 +8,4 @@ namespace Joker.Connections
         {
         }
     }
-
 }

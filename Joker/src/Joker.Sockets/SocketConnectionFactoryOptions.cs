@@ -1,5 +1,5 @@
-﻿using System.Buffers;
-using Joker.Buffers;
+﻿using Joker.Buffers;
+using System.Buffers;
 
 namespace Joker.Sockets
 {
