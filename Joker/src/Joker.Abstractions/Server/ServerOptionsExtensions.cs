@@ -1,22 +1,44 @@
 ﻿using Joker.Connections;
 using Microsoft.Extensions.DependencyInjection;
 using System.Net;
+using System.Net.Sockets;
 
 namespace Joker.Server
 {
     public static class ServerOptionsExtensions
     {
-        public static ListenOptionsBuilder AddEndPoint(this ServerOptionsBuilder builder, string key, params EndPoint[] endPoints)
+        public static ListenOptionsBuilder AddEndPoint(this ServerOptionsBuilder builder, string key)
         {
             ArgumentException.ThrowIfNullOrEmpty(key, nameof(key));
+            var lo = new ListenOptionsBuilder(key);
+            builder.ListenOptionsBuilders.Add(lo);
+            return lo;
+        }
+        public static ListenOptionsBuilder Listen(this ListenOptionsBuilder builder, params EndPoint[] endPoints)
+        {
             ArgumentNullException.ThrowIfNull(endPoints, nameof(endPoints));
             if (endPoints.Length == 0)
             {
                 throw new ArgumentException("Can't be empty", nameof(endPoints));
             }
-            var lo = new ListenOptionsBuilder(key, endPoints);
-            builder.ListenOptionsBuilders.Add(lo);
-            return lo;
+            builder.EndPoints.AddRange(endPoints);
+            return builder;
+        }
+
+
+        public static ListenOptionsBuilder ListenTcp(this ListenOptionsBuilder builder, params TcpEndPoint[] endPoints)
+        {
+            return builder.Listen(endPoints);
+        }
+
+        public static ListenOptionsBuilder ListenUdp(this ListenOptionsBuilder builder, params UdpEndPoint[] endPoints)
+        {
+            return builder.Listen(endPoints);
+        }
+
+        public static ListenOptionsBuilder ListenUnixDomainSocket(this ListenOptionsBuilder builder, params UnixDomainSocketEndPoint[] endPoints)
+        {
+            return builder.Listen(endPoints);
         }
 
         public static ListenOptionsBuilder UseMiddleware(this ListenOptionsBuilder builder, Func<ConnectionDelegate, ConnectionDelegate> middleware)
