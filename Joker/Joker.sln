@@ -5,7 +5,9 @@ VisualStudioVersion = 17.6.33417.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2F42D759-A887-41E2-A5B9-2A62FD519C65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.Abstractions", "src\Joker.Abstractions\Joker.Abstractions.csproj", "{764A5EB2-2D14-456D-A86F-1F43DD8F10E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.Abstractions", "src\Joker.Abstractions\Joker.Abstractions.csproj", "{764A5EB2-2D14-456D-A86F-1F43DD8F10E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{D540BA37-F824-45A0-81E5-54876833F29D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
