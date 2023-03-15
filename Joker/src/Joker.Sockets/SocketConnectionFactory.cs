@@ -46,10 +46,8 @@ namespace Joker.Sockets
         public async ValueTask<ConnectionContext> ConnectAsync(EndPoint endpoint, CancellationToken cancellationToken = default)
         {
             var ipEndPoint = endpoint as IPEndPoint ?? throw new NotSupportedException("The SocketConnectionFactory only supports IPEndPoints for now.");
-            var socket = new Socket(ipEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp)
-            {
-                NoDelay = _options.NoDelay
-            };
+            var socket = _options.CreateBoundSocket(endpoint);
+            socket.NoDelay = _options.NoDelay;
 
             await socket.ConnectAsync(ipEndPoint);
 

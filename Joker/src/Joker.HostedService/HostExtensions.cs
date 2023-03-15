@@ -9,7 +9,7 @@ namespace Microsoft.Extensions.Hosting
 {
     public static class HostExtensions
     {
-        public static IHostBuilder ConfigureZzz(this IHostBuilder hostBuilder, Action<ServerOptionsBuilder> action)
+        public static IHostBuilder ConfigureJoker(this IHostBuilder hostBuilder, Action<ServerOptionsBuilder> action)
         {
             hostBuilder.ConfigureServices((hostContext, services) =>
              {

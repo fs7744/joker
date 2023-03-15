@@ -26,11 +26,6 @@ namespace Joker.Server
             return builder;
         }
 
-        public static ListenOptionsBuilder ListenTcp(this ListenOptionsBuilder builder, params TcpEndPoint[] endPoints)
-        {
-            return builder.Listen(endPoints);
-        }
-
         public static ListenOptionsBuilder ListenUdp(this ListenOptionsBuilder builder, params UdpEndPoint[] endPoints)
         {
             return builder.Listen(endPoints);

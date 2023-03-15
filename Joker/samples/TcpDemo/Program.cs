@@ -32,7 +32,7 @@ namespace TcpDemo
         public static async Task Main(string[] args)
         {
             var host = Host.CreateDefaultBuilder()
-                .ConfigureZzz(i =>
+                .ConfigureJoker(i =>
                 {
                     i.Services.AddSingleton<TestProxyHandler>();
                     i.AddEndPoint("test").Listen(IPEndPoint.Parse("127.0.0.1:5000")).UseMiddleware<TestProxyHandler>();
