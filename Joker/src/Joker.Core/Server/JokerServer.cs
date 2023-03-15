@@ -9,9 +9,9 @@ namespace Joker.Server
     {
         private bool _hasStarted;
         private int _stopping;
-        private readonly SemaphoreSlim _bindSemaphore = new SemaphoreSlim(initialCount: 1);
-        private readonly CancellationTokenSource _stopCts = new CancellationTokenSource();
-        private readonly TaskCompletionSource _stoppedTcs = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        private readonly SemaphoreSlim _bindSemaphore = new(initialCount: 1);
+        private readonly CancellationTokenSource _stopCts = new();
+        private readonly TaskCompletionSource _stoppedTcs = new(TaskCreationOptions.RunContinuationsAsynchronously);
         private readonly ServiceContext _serviceContext;
         private readonly TransportManager _transportManager;
 

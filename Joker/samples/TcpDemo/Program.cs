@@ -29,7 +29,7 @@ namespace TcpDemo
 
     internal class Program
     {
-        public static async Task Main(string[] args)
+        public static async Task Main()
         {
             var host = Host.CreateDefaultBuilder()
                 .ConfigureJoker(i =>
