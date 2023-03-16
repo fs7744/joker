@@ -1,5 +1,6 @@
 using Joker.Buffers;
 using Joker.Exceptions;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.Logging;
 using System.Buffers;
 using System.Diagnostics;
@@ -72,6 +73,8 @@ internal sealed partial class SocketConnection : TransportConnection
     public override MemoryPool<byte> MemoryPool { get; }
 
     public override IServiceProvider ServiceProvider => _serviceProvider;
+
+    public override IFeatureCollection Features { get; } = new FeatureCollection();  //todo : test FeatureCollection vs if unsafe.as perf
 
     public void Start()
     {

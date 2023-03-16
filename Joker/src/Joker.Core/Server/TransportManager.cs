@@ -1,5 +1,6 @@
 ﻿using Joker.Connections;
 using Joker.Exceptions;
+using Microsoft.AspNetCore.Http.Features;
 using System.IO.Pipelines;
 using System.Net;
 
@@ -7,7 +8,7 @@ namespace Joker.Server
 {
     internal sealed class TransportManager
     {
-        private readonly List<ActiveTransport> _transports = new List<ActiveTransport>();
+        private readonly List<ActiveTransport> _transports = new();
 
         private readonly List<IConnectionListenerFactory> _transportFactories;
         private readonly ServiceContext _serviceContext;
@@ -89,6 +90,8 @@ namespace Joker.Server
             }
 
             public override IServiceProvider ServiceProvider => _inner.ServiceProvider;
+
+            public override IFeatureCollection Features => _inner.Features;
 
             public override void Abort(ConnectionAbortedException abortReason)
             {

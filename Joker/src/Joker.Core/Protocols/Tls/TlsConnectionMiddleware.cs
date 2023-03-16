@@ -5,9 +5,13 @@ namespace Joker.Protocols.Tls
 {
     public class TlsConnectionMiddleware : IMiddleware
     {
-        public Task Invoke(ConnectionContext connection, ConnectionDelegate next)
+        public async Task Invoke(ConnectionContext context, ConnectionDelegate next)
         {
-            throw new NotImplementedException();
+            if (context.Features.Get<ITlsConnectionFeature>() != null)
+            {
+                await next(context);
+                return;
+            }
         }
     }
 }
